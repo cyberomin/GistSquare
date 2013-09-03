@@ -1,0 +1,415 @@
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);*/
+
+@font-face
+{
+    font-family:'MuseoSans-700';
+    src:url("https://s3.amazonaws.com/coderwall-font/221897_0_0.eot");
+    src:url("https://s3.amazonaws.com/coderwall-font/221897_0_0.eot?#iefix")
+    format("embedded-opentype"),
+    url("https://s3.amazonaws.com/coderwall-font/221897_0_0.woff") format("woff"),
+    url("https://s3.amazonaws.com/coderwall-font/221897_0_0.ttf") format("truetype")
+}
+
+@font-face
+{
+    font-family:'MuseoSans-300';
+    src:url("https://s3.amazonaws.com/coderwall-font/221897_1_0.eot");
+    src:url("https://s3.amazonaws.com/coderwall-font/221897_1_0.eot?#iefix") format("embedded-opentype"),
+    url("https://s3.amazonaws.com/coderwall-font/221897_1_0.woff") format("woff"),
+    url("https://s3.amazonaws.com/coderwall-font/221897_1_0.ttf") format("truetype")
+}
+
+
+/*@font-face
+{
+    font-family:'MuseoSans-700';
+    src:url("../fonts/221897_0_0.eot");
+    src:url("../fonts/221897_0_0.eot?#iefix")
+    format("embedded-opentype"),
+    url("../fonts/221897_0_0.woff") format("woff"),
+    url("../fonts/221897_0_0.ttf") format("truetype")
+}
+
+@font-face
+{
+    font-family:'MuseoSans-300';
+    src:url("../fonts/221897_1_0.eot");
+    src:url("../fonts/221897_1_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/221897_1_0.woff") format("woff"),
+    url("../fonts/221897_1_0.ttf") format("truetype")
+}*/
+
+html,body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+  	color: #5E6771;
+  	/*font: 18px/26px "Open Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  	-webkit-font-smoothing: antialiased;
+    /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    /*font-family: "BentonSans",sans-serif;*/
+    font-family: "MuseoSans-300",arial,sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5em;
+    height: 100%;
+}
+
+
+/*Navigation bar*/
+#navigation
+{
+    width: 100%;
+    line-height: 40px;
+    background-color: rgb(27, 27, 27);
+    background-image: linear-gradient(to bottom, rgb(34, 34, 34), rgb(17, 17, 17));
+    background-repeat: repeat-x;
+    border-color: rgb(37, 37, 37);
+    color: #FFF;
+    margin-top: 0;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:10000;
+    overflow:visible;
+}
+#navigation #title
+{
+    width: 800px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+#navigation #title a
+{
+    text-decoration: none;
+    color: #FFF;
+}
+
+#navigation #login
+{
+    display: inline-block;
+    float: right;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+/*Content - Site*/
+#content
+{
+    width: 800px;
+    margin: 60px auto 0 auto;
+    text-align: justify;
+    min-height: 100%;
+    margin-bottom: -40px;
+    position: relative;
+}
+#content:after
+{
+    content: "";
+    display: block;
+    height: 60px;
+}
+#content img.logo
+{
+    display: block;
+}
+#content img.article_image
+{
+    /*float: left;*/
+    border: solid 1px #CCCCCC;
+    padding: 2px;
+    margin-left: -90px;
+    display: block;
+    position: absolute;
+
+}
+#content p
+{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 30px;
+    color:#333333;
+}
+#content a.read_more,a.likes
+{
+    text-decoration: none;
+    color: rgb(243, 71, 71);
+    font-size:14px;
+}
+#content a.title
+{
+    text-decoration: none;
+    color:#3a87ad;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "MuseoSans-700",arial,sans-serif;
+}
+#content span.date
+{
+    font-size: 12px;
+    color: #666;
+    display: block;
+}
+#content ul.content_body
+{
+    margin: 0;
+    padding: 0;
+    width: 600px;
+}
+
+.left_column,.right_column
+{
+    float: left;
+}
+.left_column
+{
+    width: 500px;
+    padding-right: 50px;
+}
+.right_column
+{
+    width: 190px;
+    float: right;
+    text-align: right;
+}
+.right_column a
+{
+    font-weight: normal;
+    color:#3a87ad;
+}
+
+.right_column a:hover
+{
+    text-decoration: underline;
+}
+.article_form ul li
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p.like
+{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+/*Search */
+input#search
+{
+    width: 98.5%;
+    border: solid 1px #CCCCCC;
+    padding: 5px;
+    color: #666666;
+}
+
+#search_results
+{
+    margin: 0;
+    padding: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 100%;
+    margin-top: -2px;
+    position: absolute;
+    background-color: #FFFFFF;
+    z-index: 100;
+}
+
+#search_results li
+{
+    list-style: none;
+}
+#search_results li.results a
+{
+    width: 98%;
+    display: inline-block;
+    padding-left: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(243, 71, 71);
+}
+#search_results li:hover
+{
+    background-color: #3a87ad;
+    outline: 1px solid #3a87ad;
+}
+
+#search_results li:hover a
+{
+    color: #FFFFFF;
+}
+/*Menu System*/
+.label-info
+{
+    background-color:#3a87ad;
+    border-radius: 3px 3px 3px 3px;
+    display: inline-block;
+    padding: 2px 4px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 10.998px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #FFF;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+    width: 150px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/*Circular Views counter*/
+.views
+{
+    background: #ccc; /* for IE8 - IE9 and other browsers gets the next line */
+    background: rgba(0, 0, 0, 0.2); /* #ccc - derived with black on white - rgba so it tints off the background colour */
+    border-radius: 2em; /* needs to be at least 1em + border-top + border-bottom + padding-top + padding-bottom to get perfectly rounded */
+    color: #333; /* for IE8 - IE9 and other browsers gets the next line */
+    color: rgba(0, 0, 0, .8); /* #333 on white - rgba so it tints off the background colour */
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    /*line-height: 1;*/
+    margin: 0;
+    min-width: 1em; /* want a capsule style even when single digit */
+    /*padding: 3px 5px 2px 5px;*/
+    padding: 3px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -2px;
+    position: absolute;
+    margin-left: 10px;
+}
+
+
+/*Pagination*/
+span.step-links ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+span.step-links li
+{
+    font-size: 16px;
+    color: #FFFFFF;
+    float: left;
+    margin-right:5px;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    background-color:#3a87ad;
+    border: solid 1px #3a87ad;
+}
+span.step-links li.current
+{
+    background-color: #FFFFFF;
+    color: #3a87ad;
+}
+
+/*Footer*/
+div#page
+{
+    min-height: 100%;
+    position: relative;
+    height: 100%;
+}
+div.clear
+{
+    clear: both;
+}
+footer.footer
+{
+    width: 100%;
+    background-color: #CCCCCC;
+    color: #333;
+    bottom: 0;
+    height: 120px;
+    font-size: 13px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+}
+footer.footer div.centerDiv
+{
+    width: 800px;
+    margin: 0 auto;
+}
+footer.footer span#madewithlove
+{
+    float: right;
+    display: inline-block;
+}
+div.holder
+{
+    width:250px;
+    float: left;
+    padding:0 15px 0 0;
+    /*border-right: 1px #FFFFFF solid;*/
+}
+div.credit
+{
+    display: block;
+}
+
+/*Subscription box*/
+form#email_form input[type="text"]
+{
+    border: solid 1px #CCCCCC;
+    padding: 5px;
+}
+
+/*Alerts*/
+.sub_success
+{
+    color: #76EE00;
+}
+.sub_error
+{
+    color: #F00;
+}
+div.most_read
+{
+    text-align: left;
+    padding-left: 30px;
+}
+div.most_read a
+{
+    font-weight: 400;
+    color:#3a87ad;;
+    text-decoration: none;
+}
+/*Divider*/
+
+
+/*Comment*/
+#comment textarea
+{
+    width: 800px;
+    border: solid 1px #CCCCCC;
+    padding: 10px;
+    height: 150px;
+    font-family: "MuseoSans-300",arial,sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    font-style: normal;
+}
+p.comments
+{
+    border-top: solid 1px #CCCCCC;
+    margin-top: 30px;
+}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}The Muse - Create Article{% endblock %}
+
+
+{% block content %}
+
+<form action="/articles/create/" method="POST" class="article_form"> {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input type="submit" name="Submit" value="Submit">
+</form>
+
+{% endblock %}

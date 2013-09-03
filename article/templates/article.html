@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+
+{% block title %}GistSquare - {{ article.title}}{% endblock %}
+
+{% block content %}
+
+{% if article %}
+
+    <img src="{{ article.logo }}" class="logo"/>
+
+    <span class="date">{{ article.created_at}}</span>
+    <a class="title"> {{ article.title}}</a>
+
+    <div class="clear"></div>
+
+    {% autoescape off %}
+        <p>
+            {% if article.image %}
+                <!--<img src="{{ article.image }}" class="article_image"/>!-->
+            {% endif %}
+            {{ article.body }}
+        </p>
+        <span class="date">Source: {{ article.source }}</span>
+    {% endautoescape %}
+    <p class="like">
+        {% if article.likes > 1 %}
+            {{ article.likes }} likes for this article -
+        {% elif article.likes == 0 %}
+            No like for this article -
+        {% else %}
+            {{ article.likes }} like for this article -
+        {% endif %}
+        <a href="/story/likes/{{ article.id }}" class="likes">Like Article</a>
+    </p>
+    <form action="/story/add_comment/{{ article.id }}/" method="POST" id="comment">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><b>Discuss This News</b></td>
+            </tr>
+            <tr>
+                <td>
+                    {% if error %}
+                        {{ error }}
+                    {% endif %}
+                    <textarea name="body"></textarea>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+
+    {% if comments %}
+        Response to <b>{{ article.title }}</b>
+        <p class="comments">
+            {% for comment in comments %}
+                <p>
+                    <span class="date">{{ comment.created_at|timesince }}</span>
+                    {{ comment.body }}
+                </p>
+            {% endfor %}
+        {% else %}
+            <p><b>No discussion yet. Be the first</b></p>
+         </p>
+    {% endif %}
+
+{% else %}
+    <p>Article Does Not Exist</p>
+{% endif %}
+
+{% endblock %}

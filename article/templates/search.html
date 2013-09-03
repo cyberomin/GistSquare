@@ -1,0 +1,7 @@
+{% if articles.count >  0 %}
+    {% for article in articles %}
+        <li class="results"><a href="/story/{{ article.id }}/">{{ article.title }}</a></li>
+    {% endfor %}
+{% else %}
+    &nbsp;&nbsp;Result not found
+{% endif %}

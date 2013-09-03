@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}{{ app_name }} | Conversation That Matters, When it Matters!{% endblock %}
+
+
+{% block content %}
+
+
+<div class="left_column">
+<b>Top Stories</b>
+<ul class="content_body">
+    {% for article in articles %}
+        {% autoescape off %}
+            <div>
+                <span class="date">{{ article.created_at|timesince}} ago</span>
+                <div>
+                    <a href="/story/{{article.id}}/" class="title">{{ article.title}}</a> <span class="views">{{ article.views }}</span>
+                </div>
+                {{ user.username }}
+                <p>
+                    <!--{% if article.image != "" %}
+                        <img src="{{ article.image }}" class="article_image"/>
+                    {% elif article.logo != "" %}
+                        <img src="{{ article.logo }}" class="article_image"/>
+                    {% else %}
+                        None
+                    {% endif %}!-->
+                    {{ article.body|truncatewords:"50"}}
+                    <span class="date">Source: {{ article.source }}</span>
+                    <a href="/story/{{article.id}}/" class="read_more">[Read More]</a>
+
+                </p>
+            </div>
+        {% endautoescape %}
+    {% endfor %}
+</ul>
+</div>
+
+<div class="right_column">
+    <b>Trends:</b><br>
+    {% for trend in trends %}
+        <div class="label-info">{{ trend }}</div>
+    {% endfor %}
+
+    <br><br>
+
+    <div class="most_read">
+        <b>Most Read News:</b><br>
+        {% for stories in most_vied_stories %}
+            <a href="/story/{{stories.id}}/" class="title_one" title="{{ stories.title}}">{{ stories.title|truncatewords:"3" }}</a><br/>
+        {% endfor %}
+    </div>
+</div>
+<div class="clear"></div>
+
+
+<!--Links - Pagination!-->
+<span class="step-links">
+
+    <ul>
+        {% for i in articles.paginator.page_range %}
+            {% if articles.number == i %}
+                <a href="?page={{ i }}"><li class="current">{{ i }}</li></a>
+            {% else %}
+                <a href="?page={{ i }}"><li>{{ i }}</li></a>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</span>
+<div class="clear"></div>
+
+{% endblock %}
