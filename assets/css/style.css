@@ -62,7 +62,7 @@ html,body
 #navigation
 {
     width: 100%;
-    line-height: 40px;
+    line-height: 50px;
     background-color: rgb(27, 27, 27);
     background-image: linear-gradient(to bottom, rgb(34, 34, 34), rgb(17, 17, 17));
     background-repeat: repeat-x;
@@ -75,6 +75,11 @@ html,body
     right:0;
     z-index:10000;
     overflow:visible;
+}
+#navigation img
+{
+    margin-top: 7px;
+    position: absolute;
 }
 #navigation #title
 {
@@ -101,7 +106,7 @@ html,body
 #content
 {
     width: 800px;
-    margin: 60px auto 0 auto;
+    margin: 70px auto 0 auto;
     text-align: justify;
     min-height: 100%;
     margin-bottom: -40px;
@@ -335,7 +340,7 @@ div.clear
 footer.footer
 {
     width: 100%;
-    background-color: #CCCCCC;
+    background-color: #F3F3F3;
     color: #333;
     bottom: 0;
     height: 120px;
@@ -361,16 +366,48 @@ div.holder
     padding:0 15px 0 0;
     /*border-right: 1px #FFFFFF solid;*/
 }
+div.holder a
+{
+    text-decoration: none;
+    color: #3a87ad;
+}
 div.credit
 {
     display: block;
 }
 
 /*Subscription box*/
-form#email_form input[type="text"]
+#emailSubBox
 {
-    border: solid 1px #CCCCCC;
-    padding: 5px;
+    width: 220px;
+    position: relative;
+
+}
+#emailSubBox input[type="email"]
+{
+    float:left;
+    width:140px;
+    padding:2px;
+    border:none;
+    background-color:#FFFFFF;
+    border: solid 1px #CDCDCD;
+    border-right: none;
+    height:26px;
+}
+#emailSubBox .btn_subs
+{
+    background-color:#FEBB57;
+    color: #FFFFFF;
+    float:left;
+    width:70px;
+    font-size: 13px;
+    font-weight: 500;
+    height:31px;
+    padding:0px;
+    border:none;
+    margin:0px 0px 0px 0px;
+    cursor:pointer;
+    border:solid 1px #D97A46;
 }
 
 /*Alerts*/

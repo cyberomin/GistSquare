@@ -7,6 +7,40 @@
 
 
 <div class="left_column">
+Headlines:<span class="headlines"></span>
+<script type="text/javascript">
+    $(function()
+    {
+        var ul = $('<ul/>');
+        $.ajax(
+        {
+            url: "http://api.espn.com/v1/sports/news/headlines",
+            data: {
+            apikey: "9cgrhgqctef87pn8j7x7fgyx",
+            _accept: "application/json"
+            },
+            dataType: "jsonp",
+            success: function(data)
+            {
+                var i = 0;
+                $.each(data.headlines, function()
+                {
+                    if (i < 1)
+                    {
+                        var li = $('<li/>').text(this.headline);
+                        ul.append(li)
+                    }
+                    i++;
+                });
+
+            }
+         });
+        $('.headlines').html(ul);
+    })
+
+
+    </script>
+<br/>
 <b>Top Stories</b>
 <ul class="content_body">
     {% for article in articles %}
@@ -27,7 +61,9 @@
                     {% endif %}!-->
                     {{ article.body|truncatewords:"50"}}
                     <span class="date">Source: {{ article.source }}</span>
-                    <a href="/story/{{article.id}}/" class="read_more">[Read More]</a>
+                    <a href="/story/{{article.id}}/" class="read_more">[Read More]</a> &nbsp;
+                    <a href="http://twitter.com/share?text={{ article.title }}&url=http://www.gistsquare.com/story/{{ article.id }}/&via=gistsquare" target="_blank" class="tweet_story">Tweet</a>
+                    
 
                 </p>
             </div>
@@ -50,6 +86,9 @@
             <a href="/story/{{stories.id}}/" class="title_one" title="{{ stories.title}}">{{ stories.title|truncatewords:"3" }}</a><br/>
         {% endfor %}
     </div>
+
+
+
 </div>
 <div class="clear"></div>
 
@@ -71,3 +110,4 @@
 <div class="clear"></div>
 
 {% endblock %}
+

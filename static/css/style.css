@@ -340,7 +340,7 @@ div.clear
 footer.footer
 {
     width: 100%;
-    background-color: #CCCCCC;
+    background-color: #F3F3F3;
     color: #333;
     bottom: 0;
     height: 120px;
@@ -366,16 +366,70 @@ div.holder
     padding:0 15px 0 0;
     /*border-right: 1px #FFFFFF solid;*/
 }
+div.holder a
+{
+    text-decoration: none;
+    color: #3a87ad;
+}
 div.credit
 {
     display: block;
 }
+/*Headlines*/
+.headlines ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+
+/*Social share*/
+a.tweet_story
+{
+    display:inline-block;
+    padding: 2px 5px 2px 20px;
+    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+    color: #00ACEE;
+    text-decoration: none;
+    font-size: 12;
+  }
+
 
 /*Subscription box*/
-form#email_form input[type="text"]
+#emailSubBox
 {
-    border: solid 1px #CCCCCC;
-    padding: 5px;
+    width: 220px;
+    position: relative;
+
+}
+#emailSubBox input[type="email"]
+{
+    float:left;
+    width:140px;
+    padding:2px;
+    border:none;
+    background-color:#FFFFFF;
+    border: solid 1px #CDCDCD;
+    border-right: none;
+    height:26px;
+}
+#emailSubBox .btn_subs
+{
+    background-color:#FEBB57;
+    color: #FFFFFF;
+    float:left;
+    width:70px;
+    font-size: 13px;
+    font-weight: 500;
+    height:31px;
+    padding:0px;
+    border:none;
+    margin:0px 0px 0px 0px;
+    cursor:pointer;
+    border:solid 1px #D97A46;
 }
 
 /*Alerts*/

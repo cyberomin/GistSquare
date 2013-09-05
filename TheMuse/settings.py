@@ -211,6 +211,6 @@ LOGOUT_URL = reverse_lazy("logout")
 
 
 APPEND_SLASH = False
-AUTH_PROFILE_MODULE = 'article.Article'
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)

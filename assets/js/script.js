@@ -98,4 +98,14 @@ $(document).ready(function()
 
         return false
     })
+
+
+    //Newsticker
+     var options =
+     {
+        newsList: ".headlines",
+        startDelay: 10,
+        placeHolder1: " _"
+     }
+	 $().newsTicker(options);
 })
