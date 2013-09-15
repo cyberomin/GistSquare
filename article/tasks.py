@@ -9,6 +9,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from celery.task import PeriodicTask
 from django.utils.timezone import now
 
+from django.template.defaultfilters import slugify
+
 
 
 from HTMLParser import HTMLParser
@@ -26,7 +28,7 @@ def strip_tags(html):
     s = MLStripper()
     s.feed(html)
     return s.get_data()
-"""
+#"""
 class GetNews(PeriodicTask):
     run_every = timedelta(seconds=60)
 
@@ -52,18 +54,20 @@ class GetNews(PeriodicTask):
                 image = re.search('src="([^"]+)"',d.entries[i].summary)
                 img = image.group(1)
             except Exception:
-                img = None
+                img = 'null'
 
             logo = d.feed.image.href
             source = d.feed.title
+            slug = slugify(title)
+
             try:
                 article = Article.objects.get(title=title)
             except ObjectDoesNotExist:
-                article = Article(title=title,body=body,source=source,logo=logo,image=img)
+                article = Article(title=title,body=body,source=source,logo=logo,image=img,slug=slug)
                 #time.sleep(60)
                 article.save()
         return True
-"""
+#"""
 
 class RankNews(PeriodicTask):
 

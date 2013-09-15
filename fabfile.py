@@ -21,9 +21,9 @@ def switch_debug(what_to_change,change_to):
 
 
 def server():
-    host_string = '54.221.202.250'
-    user = 'ubuntu'
-    key_filename = '.gist_suqare/gist_square_host.pem'
+    env.host_string = '54.221.202.250'
+    env.user = 'ubuntu'
+    env.key_filename = '.gist_suqare/gist_square_host.pem'
 
 def deploy():
     local('pip freeze > requirements.txt')
@@ -41,3 +41,9 @@ def deploy():
 
     switch_debug('False', 'True')
 
+
+def install():
+    libs = open('requirements.txt').read().split("\n")
+    for i in libs:
+        print i
+        local('sudo pip install %s' % i)
