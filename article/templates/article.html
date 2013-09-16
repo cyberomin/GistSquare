@@ -32,7 +32,7 @@
         {% else %}
             {{ article.likes }} like for this article -
         {% endif %}
-        <a href="/story/likes/{{ article.id }}" class="likes">Like Article</a>
+        <a href="/story/likes/{{ article.id }}/" class="likes">Like Article</a>
     </p>
     <form action="/story/add_comment/{{ article.id }}/" method="POST" id="comment">
         {% csrf_token %}

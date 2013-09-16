@@ -30,4 +30,5 @@ urlpatterns = patterns('',
     url(r'^search/$', 'article.views.search_titles'),
     url(r'^subscription/$', 'article.views.email_subscribe'),
     url(r"^story/add_comment/(\d+)/$", "article.views.add_comment"),
+    url(r'^likes/(?P<article_id>\d+)/$', 'article.views.likes'),
 )

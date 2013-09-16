@@ -30,7 +30,7 @@ def strip_tags(html):
     return s.get_data()
 #"""
 class GetNews(PeriodicTask):
-    run_every = timedelta(seconds=60)
+    run_every = timedelta(seconds=7200)
 
     def run(self,**kwargs):
 
