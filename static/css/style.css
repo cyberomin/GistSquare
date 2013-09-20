@@ -325,6 +325,13 @@ span.step-links li.current
     background-color: #FFFFFF;
     color: #3a87ad;
 }
+a.next,a.previous
+{
+    color: #00ACEE;
+    text-decoration: none;
+    font-size: 12;
+
+}
 
 /*Footer*/
 div#page
@@ -395,7 +402,17 @@ a.tweet_story
     color: #00ACEE;
     text-decoration: none;
     font-size: 12;
-  }
+}
+
+a.share_fb
+{
+    display:inline-block;
+    padding: 2px 5px 2px 20px;
+    background: url('http://findicons.com/files/icons/2360/spirit20/20/internet_facebook.png') 1px center no-repeat;
+    color: #3B5CA7;
+    text-decoration: none;
+    font-size: 12;
+}
 
 
 /*Subscription box*/
@@ -471,4 +488,50 @@ p.comments
 {
     border-top: solid 1px #CCCCCC;
     margin-top: 30px;
+}
+
+
+/*Collage HomePage*/
+div.homepage_collage table div img
+{
+    width: 150px;
+    height: 100px;
+}
+div.homepage_collage table div
+{
+    overflow: hidden;
+    max-width: 500px;
+    height: 100px;
+}
+div.homepage_collage
+{
+    margin-top: 10px;
+}
+div.homepage_collage tr
+{
+
+}
+div.homepage_collage table
+{
+    width: 600px;
+    height: 200px;
+    /*border: solid 1px #CCCCCC;*/
+    border-spacing:0;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+div.homepage_collage table td
+{
+    /*border: solid 1px #CCCCCC;*/
+    overflow: hidden;
+    white-space:nowrap;
+    max-width: 100px;
+    max-height: 150px;
+
+}
+div.homepage_collage table td:hover
+{
+    /*background-color: #000;*/
+    cursor: pointer;
+    opacity: 0.6;
 }

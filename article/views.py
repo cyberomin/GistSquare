@@ -52,7 +52,7 @@ def sort(result):
 def articles(request):
     data = Article.objects.all().order_by('-rank_score','-created_at')
     #dataII = set(data)
-    most_vied_stories = Article.objects.all().order_by('-views')[:5]
+    most_vied_stories = Article.objects.all().order_by('-rank_score')[:8]
 
     paginator = Paginator(data, 5)
 

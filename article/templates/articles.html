@@ -7,6 +7,7 @@
 
 
 <div class="left_column">
+<!--
 Headlines:<span class="headlines"></span>
 <script type="text/javascript">
     $(function()
@@ -37,9 +38,26 @@ Headlines:<span class="headlines"></span>
          });
         $('.headlines').html(ul);
     })
-
-
     </script>
+!-->
+
+<div class="homepage_collage">
+    <table>
+        <tr>
+            <td><div><a href="http://gistsquare.com/story/191/"><img src="http://www.goolfm.net/wp-content/uploads/2013/05/massimo-moratti.jpg"/></a></div></td>
+            <td><div><a href="http://gistsquare.com/story/172/"> <img src="http://static.guim.co.uk/sys-images/Football/Pix/pictures/2013/9/19/1379620549648/Jermain-Defoe-Tottenham-H-008.jpg"/></a></div></td>
+            <td><div><a href="http://gistsquare.com/story/185/"> <img src="http://upload.wikimedia.org/wikipedia/en/0/05/PSV_Eindhoven.svg"/></a></div></td>
+            <td><div><a href="http://gistsquare.com/story/185/"><img src="http://i160.photobucket.com/albums/t178/drewy2k6/ValenciaCF.jpg"/></a> </div></td>
+        </tr>
+        <tr>
+            <td><div><a href="http://gistsquare.com/story/181/"><img src="http://i.dailymail.co.uk/i/pix/2012/07/03/article-2168397-13E9D3EA000005DC-456_468x286.jpg"/></a></div></td>
+            <td><div><a href="http://gistsquare.com/story/106/"><img src="http://cdn.japandailypress.com/wp-content/uploads/2013/01/wenger.jpg"/></a></div></td>
+            <td><div><a href="http://gistsquare.com/story/166/"> <img src="http://www.lemeilleurdupsg.com/images/news/image/Entraineurs/baup.jpeg"/></a></div></td>
+            <td><div><a href="http://gistsquare.com/story/183/"><img src="http://www.futebolportenho.com.br/wp-content/uploads/2011/12/gerardo-martino.jpg"/></a></div></td>
+        </tr>
+    </table>
+</div>
+
 <br/>
 <b>Top Stories</b>
 <ul class="content_body">
@@ -63,6 +81,9 @@ Headlines:<span class="headlines"></span>
                     <span class="date">Source: {{ article.source }}</span>
                     <a href="/story/{{article.id}}/" class="read_more">[Read More]</a> &nbsp;
                     <a href="http://twitter.com/share?text={{ article.title }}&url=http://www.gistsquare.com/story/{{ article.id }}/&via=gistsquare" target="_blank" class="tweet_story">Tweet</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.gistsquare.com/story/{{ article.id }}/" target="_blank" class="share_fb">
+                    Share
+                    </a>
                     
 
                 </p>
@@ -73,10 +94,12 @@ Headlines:<span class="headlines"></span>
 </div>
 
 <div class="right_column">
-    <b>Trends:</b><br>
-    {% for trend in trends %}
-        <div class="label-info">{{ trend }}</div>
-    {% endfor %}
+    <b>Trends:</b>
+    <ul>
+        {% for trend in trends %}
+            <div class="label-info">{{ trend }}</div>
+        {% endfor %}
+    </ul>
 
     <br><br>
 
@@ -87,15 +110,16 @@ Headlines:<span class="headlines"></span>
         {% endfor %}
     </div>
 
-
+    <!--<script src="http://widgets.footytube.com/footytube-results.php"></script>!-->
 
 </div>
+
 <div class="clear"></div>
 
 
 <!--Links - Pagination!-->
 <span class="step-links">
-
+    <!--
     <ul>
         {% for i in articles.paginator.page_range %}
             {% if articles.number == i %}
@@ -104,6 +128,19 @@ Headlines:<span class="headlines"></span>
                 <a href="?page={{ i }}"><li>{{ i }}</li></a>
             {% endif %}
         {% endfor %}
+    </ul>!-->
+    <ul>
+        {% if articles.has_previous %}
+            <a href="?page={{ articles.previous_page_number }}" class="previous">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+        </span>
+
+        {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}" class="next">Next</a>
+        {% endif %}
     </ul>
 
 </span>
