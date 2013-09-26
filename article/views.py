@@ -41,12 +41,15 @@ def trends(text):
     return data_store
 
 def sort(result):
+
     result = result.iteritems()
     data = []
     for k,v in result:
         data.append((v,k))
+    data.sort(reverse=True)
     val = max(data)
     return val[1].title()
+
 
 #@login_required
 def articles(request):

@@ -488,6 +488,12 @@ div.most_read li span
 {
     font-size: 12px;
 }
+div.most_read b
+{
+    float: right;
+    margin-bottom: 5px;
+    display: block;
+}
 /*Divider*/
 
 
