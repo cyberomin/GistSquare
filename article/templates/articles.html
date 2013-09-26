@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load article_tags %}
 
 {% block title %}{{ app_name }} | Conversation That Matters, When it Matters!{% endblock %}
 
@@ -105,9 +106,14 @@ Headlines:<span class="headlines"></span>
 
     <div class="most_read">
         <b>Most Read News:</b><br>
+        <ul>
         {% for stories in most_vied_stories %}
-            <a href="/story/{{stories.id}}/" class="title_one" title="{{ stories.title}}">{{ stories.title|truncatewords:"3" }}</a><br/>
+            <li>
+                <a href="/story/{{stories.id}}/" class="title_one" title="{{ stories.title}}">{{ stories.title|article_shorten:30 }}</a><br/>
+                <span>Read {{ stories.views}} times</span>
+            </li>
         {% endfor %}
+        </ul>
     </div>
 
     <!--<script src="http://widgets.footytube.com/footytube-results.php"></script>!-->

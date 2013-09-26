@@ -1,19 +1,11 @@
-#from bs4 import BeautifulSoup
-#import urllib2
-#import re
-
-
-#url = urllib2.urlopen('http://espnfc.com/tables/live/_/league/eng.1/barclays-premier-league?cc=3888').read()
-#soup = BeautifulSoup(url)
-
-#news = soup.find_all(attrs={'id':'Live_true_group_1'})
-
 import sendgrid
-s = sendgrid.Sendgrid('cyberomin','Ropacel1234!',secure=True)
 
-sender = ('no-reply@gistsquare.com','GistSquare')
-subject = 'Daily Digest'
-message = """
+
+s = sendgrid.Sendgrid('cyberomin', 'Ropacel1234!', secure=True)
+
+
+
+body = """
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
@@ -563,15 +555,12 @@ h4, .h4{
 </html>
 """
 
-message = sendgrid.Message(sender,subject,message,message)
-message.add_bcc('sambevong@yahoo.com')
-message.add_bcc('cyberomin@yahoo.com')
-message.add_bcc('okaliskly3@gmail.com')
-message.add_bcc('nicecleverson@yahoo.com')
-message.add_bcc('temitayo@konga.com')
-
-#'sambevong@yahoo.com','cyberomin@yahoo.com','okaliskly3@gmail.com','nicecleverson@yahoo.com','temitayo@konga.com'
 
 
+
+sender = ("noreply@gistsquare.com","Gistsquare")
+message = sendgrid.Message(sender, "Daily Digest", "",body)
+message.add_to("celestineomin@gmail.com", "Celestine Omin")
+message.add_bcc(["celestine@konga.com","cyberomin@yahoo.com"])
 
 s.web.send(message)

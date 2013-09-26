@@ -4,13 +4,14 @@ import time
 import random
 
 from article.models import Article
+from article.models import Subscription
 from datetime import date, timedelta
 from django.core.exceptions import ObjectDoesNotExist
 from celery.task import PeriodicTask
 from django.utils.timezone import now
 
 from django.template.defaultfilters import slugify
-
+import sendgrid
 
 
 from HTMLParser import HTMLParser
@@ -88,3 +89,25 @@ class RankNews(PeriodicTask):
             article.rank_score = views / pow((item_hour_age + 2),GRAVITY)
             article.save()
         return True
+
+"""
+class SendDailyLetter(PeriodicTask):
+    run_every = timedelta(seconds=6000)
+
+    def run(self, **kwargs):
+
+        s = sendgrid.Sendgrid('cyberomin', 'Ropacel1234!', secure=True)
+
+        users = Subscription.objects.all()
+        articles = Article.objects.all().order_by("-created_at")[:5]
+
+
+
+        sender = ("no-reply@gistsquare.com","Gistsquare")
+        message = sendgrid.Message(sender, "Daily Digest", "",body)
+
+        message.add_to("celestineomin@gmail.com", "Celestine Omin")
+        message.add_bcc(users)
+
+        s.web.send(message)
+"""

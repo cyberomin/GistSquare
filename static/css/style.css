@@ -57,7 +57,12 @@ html,body
     height: 100%;
 }
 
-
+ul,li
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 /*Navigation bar*/
 #navigation
 {
@@ -463,11 +468,25 @@ div.most_read
     text-align: left;
     padding-left: 30px;
 }
+div.most_read li
+{
+    border-bottom: solid 1px #CCCCCC;
+    padding: 5px 0 5px 0;
+    font-weight: 400;
+}
 div.most_read a
 {
-    font-weight: 400;
-    color:#3a87ad;;
     text-decoration: none;
+    color:#3a87ad;
+}
+div.most_read a:hover
+{
+    color: #333333;
+    text-decoration: none;
+}
+div.most_read li span
+{
+    font-size: 12px;
 }
 /*Divider*/
 
